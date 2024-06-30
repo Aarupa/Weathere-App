@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="Login-Signup.css">
+        <link rel="icon" href="./assets/rain.svg">
+        <title>Weather-forecast</title>
+        <script src="index.js" defer></script>
+    </head>
+    <body id="Home">
+        <nav class="nav-bar">
+            <div class="icon-nav">
+                <img src="./assets//sunrise.svg" alt class="logo">
+                <span>AccuWeather</span>
+            </div>
+
+            <ul class="list-nav-bar active">
+                <li class="list-item"><a href="#Home">Home</a></li>
+                <li class="list-item"><a href="#AboutOurTeam">Our Team</a></li>
+                <li class="list-item"><a href="#AboutPage" class="bgColor">About Project</a></li>
+                <li class="list-item"><a href="#" class="bgColor" id="loginButton">Login</a></li>
+                <li class="list-item"><a href="#" class="bgColor" id="signupButton">Signup</a></li>
+                <li class="list-item"><a href="#AboutOurTeam" class="profileBG"><img src="./assets/profileImage.png" alt></a></li>
+            </ul>
+            <div class="fas burger-menu" id="burger-menu">&#9776;</div>
+        </nav>
+
+        <!-- Login model page -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+                <div class="container">
+                    <h1 class="heading">Login</h1>
+                    <form class="formCase">
+                        <input class="input-box" type="email"
+                            placeholder="Enter your Email" required />
+                        <input class="input-box" type="password"
+                            placeholder="Enter your Password" required />
+                        <button class="button" type="submit">Login</button>
+                        <p class="p">Create an account? <a
+                                href="#" onclick="openSignupModal()">Sign
+                                Up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- SignUp Model page -->
+        <div id="signupModal" class="modal">
+            <div class="modal-content modal-content-signup">
+                <span class="close closeSignup"
+                    onclick="closeSignupModal()">&times;</span>
+                <div class="container">
+                    <h1 class="heading">SignUp</h1>
+                    <form class="formCase">
+                        <input class="input-box" type="text"
+                            placeholder="Enter your Full Name" required />
+                        <input class="input-box" type="email"
+                            placeholder="Enter your Email" required />
+                        <input class="input-box" type="password"
+                            placeholder="Enter your Password" required />
+                        <button class="button" type="submit">SignUp</button>
+                        <p class="p">Already have an account? <a href="#" onclick="openLoginModal()">Login</a></p>
+                        <div class="moreOptionToLogin">
+                            <button class="button" type="submit">Sign up with Google</button>
+                            <button class="button" type="submit">Sign up with Apple</button>            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home/Landing page here -->
+        <div class="main">
+            <div class="para">
+                <h1>Weather Forecast</h1>
+                <p>where every click brings you closer to meteorological
+                    mastery! Get ready to embark on a journey through weather
+                    wonders with our sleek interface. Instantly check current
+                    conditions and dive into detailed forecasts for any location
+                    worldwide</p>
+
+                <div class="Search">
+                    <input type="text" id="search-input"
+                        placeholder="Search by location name Ex: Bihar,Shimla"
+                        autocomplete="off">
+                    <button onclick="search()">SEARCH</button>
+                </div>
+
+            </div>
+            <div>
+                <div id="search-results">
+                    <div class="Getdatacards">
+                        <div class="SectionFiest">
+                            <div class="GetSearchData">
+                                <div class="middileSection">
+                                    <div>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <p>Kangra</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>Temperature</p>
+                                    <p>12°</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="middleFlex">
+                            <div class="GetSearchData">
+                                <div class="middileSection">
+                                    <div>
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div>
+                                        <p>Sunrise</p>
+                                        <p id="sunrise-time">5:45 AM</p>
+                                    </div>
+                                </div>
+                                <div class="middileSection">
+                                    <div>
+                                        <i class="fa-solid fa-cloud-sun"></i>
+                                    </div>
+                                    <div>
+                                        <p>Sunset</p>
+                                        <p>5:50 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="GetSearchData">
+                                <div class="middileSection">
+                                    <div>
+                                        <i class="fa-solid fa-cloud-rain"></i>
+                                    </div>
+                                    <div>
+                                        <p>Humidity</p>
+                                        <p>70%</p>
+                                    </div>
+                                </div>
+                                <div class="middileSection">
+                                    <div>
+                                        <i class="fa-solid fa-wind"></i>
+                                    </div>
+                                    <div>
+                                        <p>Windspeed</p>
+                                        <p>8km/h</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="DayDummyData">
+                            <div class="Days">
+                                <p>Sat</p>
+                                <img
+                                    src="https://themesfamily.com/2024/mugni/assets/img/icon/1.png"
+                                    alt="sat-weather">
+                                <p>30°</p>
+                            </div>
+                            <div class="Days">
+                                <p>Sun</p>
+                                <img
+                                    src="https://themesfamily.com/2024/mugni/assets/img/icon/2.png"
+                                    alt="sat-weather">
+                                <p>30°</p>
+                            </div>
+                            <div class="Days">
+                                <p>Mon</p>
+                                <img
+                                    src="https://themesfamily.com/2024/mugni/assets/img/icon/3.png"
+                                    alt="sat-weather">
+                                <p>30°</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Our Team Section -->
+        <div id="AboutOurTeam" class="about_main_box">
+            <div class="about__container">
+                <div class="about__textArea">
+                    <h1 class="about__mainHeading">"Our Team"</h1>
+                    <p class="about__mainPara"> Our team consists of six
+                        members: <span style="font-weight: bold;"> Kareena,
+                            Mehjbeen, Jaya, Alima, Aarti, and
+                            Amit.</span> Together, we've
+                        developed a weather app project, showcasing weather
+                        data
+                        from various cities. Each team member
+                        contributed their input to this collectively created
+                        project.
+                    </p>
+
+                </div>
+
+                <!-- Our Team Cards -->
+                <div class="about__imageContainer">
+                    <div class="about__imageBox">
+
+                        <img
+                            src="./assets/avatarF.webp"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Kareena</h3>
+                        <p class="about__innerPara">She's the one who made
+                            our
+                            <span style="font-weight: bold;">About
+                                Page.</span> It's awesome!</p>
+                    </div>
+                    <div class="about__imageBox">
+                        <img
+                            src="./assets/avatarF.webp"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Mehjbeen</h3>
+                        <p class="about__innerPara">Her efficient touch
+                            shaped
+                            the <span style="font-weight: bold;">Login
+                                Page</span>, making it friendly and
+                            smooth</p>
+                    </div>
+                    <div class="about__imageBox">
+                        <img
+                            src="./assets/avatarF.webp"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Jaya</h3>
+                        <p class="about__innerPara">Her work on the <span
+                                style="font-weight: bold;">Footer
+                                Section</span>,
+                            is
+                            simply marvelous, adding the perfect
+                            finishing touch.</p>
+                    </div>
+                    <div class="about__imageBox">
+                        <img
+                            src="https://ctmirror-images.s3.amazonaws.com/wp-content/uploads/2021/01/dummy-man-570x570-1.png"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Amit</h3>
+                        <p class="about__innerPara">He's skillfully overseen
+                            the
+                            functionality of the <span
+                                style="font-weight: bold;">search
+                                box,</span>
+                            ensuring it
+                            operates seamlessly.</p>
+                    </div>
+                    <div class="about__imageBox">
+                        <img
+                            src="./assets/avatarF.webp"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Aarti</h3>
+                        <p class="about__innerPara">She's skillfully crafted
+                            the
+                            <span style="font-weight: bold;">Home Page
+                                Section,</span> capturing the essence of our
+                            vision.</p>
+                    </div>
+                    <div class="about__imageBox">
+                        <img
+                            src="./assets/avatarF.webp"
+                            alt="Team Member Image">
+                        <h3 class="about__innerHead">Alima</h3>
+                        <p class="about__innerPara">She's the creative force
+                            behind our captivating <span
+                                style="font-weight: bold;">Sign Up
+                                Page.</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer section and About our project -->
+        <footer class="footer-area" id="AboutPage">
+            <div class="AboutSextion">
+                <div class="AboutSectionInformation">
+                    <h1>"About Our Project"</h1>
+                    <p>
+                        WeatherForecast+ is a comprehensive weather
+                        application designed to provide users with accurate
+                        and up-to-date weather information. With intuitive
+                        features and a user-friendly interface,
+                        WeatherForecast+ aims to be your go-to app for all
+                        weather-related needs.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/" target="_blank"
+                            title="facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/?lang=en"
+                            target="_blank" title="twitter" class="round"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://in.linkedin.com/" target="_blank"
+                            title="linkedin"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"
+                            title="instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Ocean part here -->
+            <div class="ocean">
+                <div class="wave">
+                    <div class="wave"></div>
+                </div>
+            </div>
+            <!-- Copy write part here -->
+            <div class="copy">
+                <p>&copy;2024 AccuWeather, This design is created by Alima
+                    Usmani, Amit Yadav, Arti Lahane, Jaya Srivastava, Kareena
+                    and Mehjbeen</p>
+                <p><i>Team Work</i></p>
+            </div>
+        </footer>
+
+    </body>
+</html>
